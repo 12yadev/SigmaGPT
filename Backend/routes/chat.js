@@ -1,5 +1,5 @@
 import express from "express";
-import Thread from "../models/thread.js";
+import Thread from "../models/Thread.js";
 import { getGroqOrOpenAIResponse } from "../utils/openai.js";
 
 const router = express.Router();
