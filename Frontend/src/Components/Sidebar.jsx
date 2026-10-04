@@ -1,7 +1,9 @@
-import "../Sidebar.css"; // <-- Yeh "../" hona chahiye kyunki file bahar src/ me hai
+import "../Sidebar.css";
 import { useContext, useEffect, useState, useCallback } from "react";
 import { MyContext } from "../MyContext.jsx";
 import { v1 as uuidv1 } from "uuid";
+
+const API_BASE_URL = "https://sigmagpt-27ef.onrender.com";
 
 function Sidebar() {
     const {
@@ -25,7 +27,7 @@ function Sidebar() {
 
     const fetchThreads = useCallback(async () => {
         try {
-            const res = await fetch("http://localhost:8080/api/thread");
+            const res = await fetch(`${API_BASE_URL}/api/thread`);
             if (res.ok) {
                 const data = await res.json();
                 if (Array.isArray(data)) {
@@ -52,7 +54,7 @@ function Sidebar() {
     const handleSelectThread = async (id) => {
         if (id === currThreadId) return;
         try {
-            const res = await fetch(`http://localhost:8080/api/thread/${id}`);
+            const res = await fetch(`${API_BASE_URL}/api/thread/${id}`);
             if (res.ok) {
                 const messages = await res.json();
                 if (Array.isArray(messages)) {
@@ -69,7 +71,7 @@ function Sidebar() {
     const handleDeleteThread = async (e, id) => {
         e.stopPropagation();
         try {
-            const res = await fetch(`http://localhost:8080/api/thread/${id}`, {
+            const res = await fetch(`${API_BASE_URL}/api/thread/${id}`, {
                 method: "DELETE"
             });
             if (res.ok) {

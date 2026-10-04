@@ -1,7 +1,9 @@
-import "../ChatWindow.css"; // <-- Corrected path (src/ChatWindow.css)
+import "../ChatWindow.css"; 
 import Chat from "../Chat.jsx";
 import { MyContext } from "../MyContext.jsx";
 import { useContext, useState, useRef, useEffect } from "react";
+
+const API_BASE_URL = "https://sigmagpt-27ef.onrender.com";
 
 function ChatWindow() {
     const {
@@ -19,7 +21,6 @@ function ChatWindow() {
     const [loading, setLoading] = useState(false);
     const messagesEndRef = useRef(null);
 
-    // Auto-scroll to bottom on new messages
     const scrollToBottom = () => {
         messagesEndRef.current?.scrollIntoView({ behavior: "smooth" });
     };
@@ -43,7 +44,7 @@ function ChatWindow() {
         ]);
 
         try {
-            const response = await fetch("http://localhost:8080/api/chat", {
+            const response = await fetch(`${API_BASE_URL}/api/chat`, {
                 method: "POST",
                 headers: { "Content-Type": "application/json" },
                 body: JSON.stringify({
@@ -63,7 +64,7 @@ function ChatWindow() {
 
                 // Refresh recent threads
                 try {
-                    const threadRes = await fetch("http://localhost:8080/api/thread");
+                    const threadRes = await fetch(`${API_BASE_URL}/api/thread`);
                     if (threadRes.ok) {
                         const threadData = await threadRes.json();
                         if (Array.isArray(threadData)) {
@@ -91,7 +92,6 @@ function ChatWindow() {
 
     return (
         <div className="chatWindow">
-            {/* Top Bar with Upgrade Button Connected */}
             <div className="chat-topbar">
                 <div 
                     className="upgrade-btn" 
@@ -110,7 +110,6 @@ function ChatWindow() {
                 </div>
             </div>
 
-            {/* Chat Body */}
             <div className="chatContainer">
                 {prevChats && prevChats.length > 0 ? (
                     <div className="chatMessagesWrapper">
@@ -129,7 +128,6 @@ function ChatWindow() {
                 )}
             </div>
 
-            {/* Bottom Input Field */}
             <div className="chatInput">
                 <div className="inputBox">
                     <button className="pill-btn" type="button" title="Add Attachment">
