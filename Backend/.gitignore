@@ -1,0 +1,15 @@
+# Environment files (Keys & secrets)
+.env
+Backend/.env
+Frontend/.env
+*.env
+
+# Dependencies
+node_modules/
+Backend/node_modules/
+Frontend/node_modules/
+
+# Build outputs & cache
+dist/
+build/
+.DS_Store

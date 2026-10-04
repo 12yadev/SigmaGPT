@@ -1,0 +1,148 @@
+.modal-overlay {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background: rgba(0, 0, 0, 0.7);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  z-index: 1000;
+  backdrop-filter: blur(4px);
+}
+
+.modal-content {
+  background: #212121;
+  color: #fff;
+  border-radius: 12px;
+  padding: 28px;
+  width: 90%;
+  max-width: 440px;
+  position: relative;
+  border: 1px solid #333;
+}
+
+.upgrade-card {
+  max-width: 680px;
+}
+
+.modal-content h2 {
+  font-size: 20px;
+  margin-bottom: 6px;
+}
+
+.modal-content p {
+  font-size: 13px;
+  color: #a1a1aa;
+  margin-bottom: 20px;
+}
+
+.modal-content form {
+  display: flex;
+  flex-direction: column;
+  gap: 12px;
+}
+
+.modal-content input {
+  background: #2f2f2f;
+  border: 1px solid #444;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  font-size: 14px;
+}
+
+.primary-modal-btn {
+  background: #10a37f;
+  border: none;
+  color: #fff;
+  padding: 12px;
+  border-radius: 8px;
+  font-weight: 600;
+  cursor: pointer;
+  margin-top: 8px;
+}
+
+.close-btn {
+  position: absolute;
+  top: 14px;
+  right: 18px;
+  background: transparent;
+  border: none;
+  color: #999;
+  font-size: 24px;
+  cursor: pointer;
+}
+
+.plans-container {
+  display: flex;
+  gap: 16px;
+}
+
+.plan-box {
+  flex: 1;
+  border: 1px solid #333;
+  padding: 20px;
+  border-radius: 10px;
+  background: #171717;
+  position: relative;
+}
+
+.pro-plan {
+  border-color: #10a37f;
+}
+
+.highlight-tag {
+  position: absolute;
+  top: -10px;
+  right: 14px;
+  background: #10a37f;
+  color: #fff;
+  font-size: 10px;
+  padding: 2px 8px;
+  border-radius: 12px;
+  font-weight: bold;
+}
+
+.price {
+  font-size: 26px;
+  font-weight: bold;
+  margin: 10px 0;
+}
+
+.price span {
+  font-size: 13px;
+  color: #888;
+}
+
+.plan-box ul {
+  list-style: none;
+  padding: 0;
+  margin: 14px 0 20px;
+  font-size: 13px;
+  color: #ccc;
+  display: flex;
+  flex-direction: column;
+  gap: 8px;
+}
+
+.upgrade-action-btn {
+  width: 100%;
+  background: #10a37f;
+  color: #fff;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+  cursor: pointer;
+  font-weight: 600;
+}
+
+.plan-status-btn {
+  width: 100%;
+  background: #2a2a2a;
+  color: #777;
+  border: none;
+  padding: 10px;
+  border-radius: 6px;
+}
